@@ -1,52 +1,84 @@
-% !TEX program = xelatex
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% !Mode:: "TeX:UTF-8"
 
 \documentclass{resume}
-%\usepackage{zh_CN-Adobefonts_external} % Simplified Chinese Support using external fonts (./fonts/zh_CN-Adobe/)
+\usepackage{zh_CN-Adobefonts_external} % Simplified Chinese Support using external fonts (./fonts/zh_CN-Adobe/)
 %\usepackage{zh_CN-Adobefonts_internal} % Simplified Chinese Support using system fonts
+\usepackage{linespacing_fix} % disable extra space before next section
+\usepackage{cite}
 
 \begin{document}
 \pagenumbering{gobble} % suppress displaying page number
 
-\name{Bin Yuan}
+\name{柳振跃}
 
 \basicInfo{
-  \email{yuanbin2014@gmail.com} \textperiodcentered\ 
-  \phone{(+86) 131-221-87xxx} \textperiodcentered\ 
-  \linkedin[billryan8]{https://www.linkedin.com/in/billryan8}}
+  邮箱: jarvisliu1014@gmail.com \textperiodcentered\ 
+  电话/微信: 193-3400-8868 \textperiodcentered\ 
+}
+ 
+\section{\faGraduationCap\  教育背景及证书}
+\datedsubsection{\textbf{加州大学圣克鲁兹分校（USNEWS TOP100）}, Santa Cruz, CA, US}{2019 -- 2022}
+\textit{学士}\ 计算机科学专业 \\
+每年都获得奖学金，并提前一年将四年课程三年学完，最后以GPA3.58获得优秀毕业生称号
+\datedsubsection{\textbf{高级系统架构师证书}}{2024}
 
-\section{\faGraduationCap\ Education}
-\datedsubsection{\textbf{Shanghai Jiao Tong University (SJTU)}, Shanghai, China}{2013 -- Present}
-\textit{Master student} in Electronics Engineering (EE), expected March 2016
-\datedsubsection{\textbf{Xidian University}, Shaanxi, China}{2009 -- 2013}
-\textit{B.S.} in Electronics Engineering (EE)
-
-\section{\faUsers\ Experience}
-\datedsubsection{\textbf{FLAG Inc.} California, America}{2012 -- Present}
-\role{Summer Intern}{Manager: xxx}
-Brief introduction: xxx.
+\section{\faUsers\ 工作经历}
+\datedsubsection{\textbf{阿里斑马智行网络有限公司}\ 杭州}{2022年11月 -- 2025年1月}
+\role{Rust, C++}{AliOS DDS 专用于车载行业的通信中间件项目}
+ \begin{onehalfspacing}
+中间件开发工程师
 \begin{itemize}
-  \item Implemented xxx feature
-  \item Optimized xxx 5\%
-  \item xxx
+  \item 背景：负责车载通信中间件AliOS DDS的核心模块开发与优化，支撑车载系统的实时通信需求。
+  \item 职责：
+    \begin{itemize}
+      \item 主导Discovery发现模块的性能优化，通过并行化与算法改进，将模块在小规模场景发现完毕的时间从130us缩短到\textasciitilde40us，大规模场景下延迟从3\textasciitilde5s降低至300ms。同时利用tokio异步框架改进原有架构，避免潜在的持有锁过长带来的性能影响。
+      \item 设计并搭建Jenkins自动化测试平台，集成Grafana监控看板，实现一键出包、自动化测试与性能监控，发现并修复300余个潜在问题,如死锁，内存泄漏，竞态条件等。
+      \item 基于Vue与Electron开发DDS配置工具，简化QoS与网络配置流程，提升项目商业竞争力
+    \end{itemize}
+  \item 成果：优化后的模块显著提升了车载系统的启动速度与稳定性，自动化平台节省了团队大量的测试维护时间，并补全其在商业竞争中所缺失的能力。
 \end{itemize}
+ \end{onehalfspacing}
 
-\datedsubsection{\textbf{xxx Projects}}{Jan. 2015 -- Present}
-\role{C, Python, Django, Linux}{Individual Projects, collaborated with xxx}
-Brief introduction: xxx
-\begin{itemize}
-  \item Implemented xxx feature
-  \item Optimized xxx 5\%
-  \item xxx
-\end{itemize}
 
-\datedsubsection{\textbf{\LaTeX\ résumé template}}{May. 2015 -- Present}
-\role{\LaTeX, Maintainer}{Individual Projects}
-An elegant \LaTeX\ résumé template, https://github.com/billryan/resume
+\datedsubsection{\textbf{浙江大华技术股份有限公司}\ 杭州}{2021年6月 -- 2021年9月}
+\role{Qt/C++}{大华云睿	SAAS服务的终端视频监控和管理桌面软件项目}
+ \begin{onehalfspacing}
+桌面应用开发工程师
 \begin{itemize}
-  \item Easy to be further customized or extended
-  \item Full support for unicode characters (e.g. CJK) with \XeLaTeX\
-  \item FontAwesome 4.5.0 support
+  \item 背景：参与SAAS服务的终端视频监控和管理桌面软件开发，负责消息通知模块的设计与优化。
+  \item 职责：
+    \begin{itemize}
+      \item 设计并实现新类型的消息通知及通知方法，提升系统的灵活性和用户体验。
+      \item 重构消息处理机制，引入优先级队列，确保重点消息的送达延迟小于200ms，并增加双向确认机制，杜绝重点消息漏报。
+      \item 创新设计悬浮球模块及其动画效果，显著提升消息通知的及时性和易用性。
+    \end{itemize}
+  \item 成果：优化后的消息通知模块获得客户点名表扬，重点消息的送达延迟降低至200ms以下，系统稳定性和用户体验显著提升。
 \end{itemize}
+ \end{onehalfspacing}
+ 
+% \datedsubsection{\textbf{分布式科学上网姿势}}{2014年6月 -- 至今}
+% \role{Golang, Linux}{个人项目，和富帅糕合作开发}
+% \begin{onehalfspacing}
+% 分布式负载均衡科学上网姿势, https://github.com/cyfdecyf/cow
+% \begin{itemize}
+%   \item 修复了连接未正常关闭导致文件描述符耗尽的 bug
+%   \item 使用Chord 哈希 URL, 实现稳定可靠地分流
+%   \item xxx (尽量使用量化的客观结果)
+% \end{itemize}
+% \end{onehalfspacing}
+
+% \datedsubsection{\textbf{\LaTeX\ 简历模板}}{2015 年5月 -- 至今}
+% \role{\LaTeX, Python}{个人项目}
+% \begin{onehalfspacing}
+% 优雅的 \LaTeX\ 简历模板, https://github.com/billryan/resume
+% \begin{itemize}
+%   \item 容易定制和扩展
+%   \item 完善的 Unicode 字体支持，使用 \XeLaTeX\ 编译
+%   \item 支持 FontAwesome 4.5.0
+% \end{itemize}
+% \end{onehalfspacing}
 
 % Reference Test
 %\datedsubsection{\textbf{Paper Title\cite{zaharia2012resilient}}}{May. 2015}
@@ -55,23 +87,28 @@ An elegant \LaTeX\ résumé template, https://github.com/billryan/resume
 %  \item main contribution
 %\end{itemize}
 
-\section{\faCogs\ Skills}
+\section{\faCogs\ 技能清单}
+% increase linespacing [parsep=0.5ex]
 \begin{itemize}[parsep=0.5ex]
-  \item Programming Languages: C == Python > C++ > Java
-  \item Platform: Linux
-  \item Development: Web, xxx
+    \item \textbf{语言}：C++, Rust, Javascript, Typescript, Python
+    \item \textbf{框架}：Qt,NodeJS, Vue, React, Electron, Tauri
+    \item \textbf{数据库相关}：PostgreSQL, SQLite
+    \item \textbf{版本管理、文档和自动化部署工具}：Svn, Git, RustDoc, Jenkins, Grafana, 语雀
+    \item \textbf{开发测试配套工具}：Google Test, Cargo Test, CMake, atrace, Cargo, gdb, valgrind, wireshark
+    \item \textbf{协议栈}：TCP/IP, HTTP/S, DDS
 \end{itemize}
 
-\section{\faHeartO\ Honors and Awards}
-\datedline{\textit{\nth{1} Prize}, Award on xxx }{Jun. 2013}
-\datedline{Other awards}{2015}
+% \section{\faHeartO\ 获奖情况}
+% \datedline{\textit{第一名}, xxx 比赛}{2013 年6 月}
+% \datedline{其他奖项}{2015}
 
-\section{\faInfo\ Miscellaneous}
-\begin{itemize}[parsep=0.5ex]
-  \item Blog: http://your.blog.me
-  \item GitHub: https://github.com/username
-  \item Languages: English - Fluent, Mandarin - Native speaker
-\end{itemize}
+% \section{\faInfo\ 其他}
+% % increase linespacing [parsep=0.5ex]
+% \begin{itemize}[parsep=0.5ex]
+%   \item 技术博客: http://blog.yours.me
+%   \item GitHub: https://github.com/username
+%   \item 语言: 英语 - 熟练(TOEFL xxx)
+% \end{itemize}
 
 %% Reference
 %\newpage
