@@ -34,16 +34,18 @@
   \item 背景：负责车载通信中间件AliOS DDS的核心模块开发与优化，支撑车载系统的实时通信需求。
   \item 职责：
     \begin{itemize}
+      \item 设计DDS域冗余架构，实现主备节点无缝切换，系统可用性从99.9\%提升至99.99\%
+      \item 主导数据传输链路优化，利用异步框架优化后在udp大数据场景（>32MB）从基本不可用优化至300ms以内，达成项目可用性要求
       \item 主导Discovery发现模块的性能优化，通过并行化与算法改进，将模块在小规模场景发现完毕的时间从130us缩短到\textasciitilde40us，大规模场景下延迟从3\textasciitilde5s降低至300ms。同时利用tokio异步框架改进原有架构，避免潜在的持有锁过长带来的性能影响。
-      \item 设计并搭建Jenkins自动化测试平台，集成Grafana监控看板，实现一键出包、自动化测试与性能监控，发现并修复300余个潜在问题,如死锁，内存泄漏，竞态条件等。
+      \item 设计并搭建Jenkins自动化测试平台，集成Grafana监控看板，实现一键出包、自动化测试与性能监控，发现并修复300余个潜在问题。
       \item 基于Vue与Electron开发DDS配置工具，简化QoS与网络配置流程，提升项目商业竞争力
     \end{itemize}
-  \item 成果：优化后的模块显著提升了车载系统的启动速度与稳定性，自动化平台节省了团队大量的测试维护时间，并补全其在商业竞争中所缺失的能力。
+  \item 成果：优化后的模块显著提升了DDS速度与稳定性，自动化平台节省了团队大量的测试维护时间，并补全其在商业竞争中所缺失的能力。
 \end{itemize}
  \end{onehalfspacing}
 
 
-\datedsubsection{\textbf{浙江大华技术股份有限公司}\ 杭州}{2021年6月 -- 2021年9月}
+\datedsubsection{\textbf{浙江大华技术股份有限公司}\ 杭州（实习）}{2021年6月 -- 2021年9月}
 \role{Qt/C++}{大华云睿	SAAS服务的终端视频监控和管理桌面软件项目}
  \begin{onehalfspacing}
 桌面应用开发工程师
@@ -53,9 +55,9 @@
     \begin{itemize}
       \item 设计并实现新类型的消息通知及通知方法，提升系统的灵活性和用户体验。
       \item 重构消息处理机制，引入优先级队列，确保重点消息的送达延迟小于200ms，并增加双向确认机制，杜绝重点消息漏报。
-      \item 创新设计悬浮球模块及其动画效果，显著提升消息通知的及时性和易用性。
+      \item 创新设计悬浮球模块及其动画效果，提升消息通知的及时性和易用性。
     \end{itemize}
-  \item 成果：优化后的消息通知模块获得客户点名表扬，重点消息的送达延迟降低至200ms以下，系统稳定性和用户体验显著提升。
+  \item 成果：优化后的消息通知模块获得客户点名表扬，系统稳定性和用户体验显著提升。
 \end{itemize}
  \end{onehalfspacing}
  
@@ -92,11 +94,9 @@
 % increase linespacing [parsep=0.5ex]
 \begin{itemize}[parsep=0.5ex]
     \item \textbf{语言}：C++, Rust, Javascript, Typescript, Python
-    \item \textbf{框架}：Qt,NodeJS, Vue, React, Electron, Tauri
+    \item \textbf{框架}：Qt, NodeJS, Vue, React, Electron, Tauri
     \item \textbf{数据库相关}：PostgreSQL, SQLite
-    \item \textbf{版本管理、文档和自动化部署工具}：Svn, Git, RustDoc, Jenkins, Grafana, 语雀
-    \item \textbf{开发测试配套工具}：Google Test, Cargo Test, CMake, atrace, Cargo, gdb, valgrind, wireshark
-    \item \textbf{协议栈}：TCP/IP, HTTP/S, DDS
+    \item \textbf{版本管理、文档、部署、debug工具}：Git, RustDoc, Jenkins, Grafana, Google Test, Cargo Test, CMake, atrace, Cargo, gdb, valgrind, wireshark
 \end{itemize}
 
 % \section{\faHeartO\ 获奖情况}
