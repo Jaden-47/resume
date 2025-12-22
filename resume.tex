@@ -1,117 +1,123 @@
-% !TEX TS-program = xelatex
-% !TEX encoding = UTF-8 Unicode
-% !Mode:: "TeX:UTF-8"
+  % !TEX TS-program = xelatex
+  % !TEX encoding = UTF-8 Unicode
+  % !Mode:: "TeX:UTF-8"
 
-\documentclass{resume}
-\usepackage{zh_CN-Adobefonts_external} % Simplified Chinese Support using external fonts (./fonts/zh_CN-Adobe/)
-%\usepackage{zh_CN-Adobefonts_internal} % Simplified Chinese Support using system fonts
-\usepackage{linespacing_fix} % disable extra space before next section
-\usepackage{cite}
+  \documentclass{resume}
+  \usepackage{zh_CN-Adobefonts_external} % Simplified Chinese Support using external fonts (./fonts/zh_CN-Adobe/)
+  %\usepackage{zh_CN-Adobefonts_internal} % Simplified Chinese Support using system fonts
+  \usepackage{linespacing_fix} % disable extra space before next section
+  \usepackage{cite}
 
-\begin{document}
-\pagenumbering{gobble} % suppress displaying page number
+  \begin{document}
+  \pagenumbering{gobble} % suppress displaying page number
 
-\name{柳振跃}
+  \name{柳振跃}
 
-\basicInfo{
-  邮箱: jarvisliu1014@gmail.com \textperiodcentered\ 
-  电话/微信: 193-3400-8868 \textperiodcentered\ 
-}
- 
-\section{\faGraduationCap\  教育背景及证书}
-\datedsubsection{\textbf{系统架构设计师}\ 国家计算机技术与软件（高级）专业技术资格}{2024}
-\datedsubsection{\textbf{加州大学圣克鲁兹分校（USNEWS TOP100）}, Santa Cruz, CA, US}{2019 -- 2022}
-\textit{学士}\ 计算机科学专业 \\
-每年都获得奖学金，并提前一年将四年课程三年学完，最后以GPA3.58获得优秀毕业生称号
-
-
-\section{\faUsers\ 工作经历}
-\datedsubsection{\textbf{阿里斑马智行网络有限公司}\ 杭州}{2022年11月 -- 2025年1月}
-\role{Rust, C++}{\textbf{AliOS DDS} 一个专用于车载行业的通信中间件}
- \begin{onehalfspacing}
-中间件开发工程师
-\begin{itemize}
-  \item 背景：负责车载通信中间件AliOS DDS的核心模块开发与优化，支撑车载系统的实时通信需求。
-  \item 职责：
-    \begin{itemize}
-      \item 主导Discovery发现模块的性能优化，将模块在小规模场景发现完毕的时间从130us缩短到\textasciitilde40us，大规模场景下延迟从3\textasciitilde5s降低至300ms。同时利用tokio异步框架改进原有架构，避免潜在的持有锁过长带来的性能影响。
-      \item 负责ROS2以及其他中间件的多语言协同开发维护，构建高可靠Rust/C++跨语言互操作框架，驱动系统级性能优化与架构演进
-      \item 设计DDS域冗余架构，实现主备节点无缝切换，系统可用性从99.9\%提升至99.99\%
-      \item 设计并搭建Jenkins自动化测试平台，集成Grafana监控看板，实现一键出包、自动化测试与性能监控，发现并修复300余个潜在问题。
-      \item 基于Vue与Electron开发DDS配置工具，简化QoS与网络配置流程，提升项目商业竞争力
-    \end{itemize}
-  \item 成果：优化后的模块显著提升了DDS速度与稳定性，自动化平台节省了团队大量的测试维护时间，并补全其在商业竞争中所缺失的能力。
-\end{itemize}
- \end{onehalfspacing}
+  \basicInfo{
+    邮箱: jarvisliu1014@gmail.com \textperiodcentered\ 
+    电话/微信: 193-3400-8868 \textperiodcentered\ 
+  }
+  
+  \section{\faGraduationCap\  教育背景及证书}
+  \datedsubsection{\textbf{系统架构设计师}\ 国家计算机技术与软件（高级）专业技术资格}{2024}
+  \datedsubsection{\textbf{加州大学圣克鲁兹分校（USNEWS TOP100）}, Santa Cruz, CA, US}{2019 -- 2022}
+  \textit{学士}\ 计算机科学专业 \\
+  每年都获得奖学金，并提前一年将四年课程三年学完，最后以GPA3.58获得优秀毕业生称号
 
 
-\datedsubsection{\textbf{浙江大华技术股份有限公司}\ 杭州（实习）}{2021年6月 -- 2021年9月}
-\role{Qt/C++}{\textbf{大华云睿} 一个SAAS服务的终端视频监控和管理桌面软件项目}
- \begin{onehalfspacing}
-桌面应用开发工程师
-\begin{itemize}
-  \item 背景：参与SAAS服务的终端视频监控和管理桌面软件开发，负责消息通知模块的设计与优化。
-  \item 职责：
-    \begin{itemize}
-      \item 重构消息处理机制，引入优先级队列，确保重点消息的送达延迟小于200ms，并增加双向确认机制，杜绝重点消息漏报。
-      \item 创新设计悬浮球模块及其动画效果，提升消息通知的及时性和易用性。
-    \end{itemize}
-  \item 成果：优化后的消息通知模块获得客户点名表扬，系统稳定性和用户体验显著提升。
-\end{itemize}
- \end{onehalfspacing}
- 
-% \datedsubsection{\textbf{分布式科学上网姿势}}{2014年6月 -- 至今}
-% \role{Golang, Linux}{个人项目，和富帅糕合作开发}
-% \begin{onehalfspacing}
-% 分布式负载均衡科学上网姿势, https://github.com/cyfdecyf/cow
-% \begin{itemize}
-%   \item 修复了连接未正常关闭导致文件描述符耗尽的 bug
-%   \item 使用Chord 哈希 URL, 实现稳定可靠地分流
-%   \item xxx (尽量使用量化的客观结果)
-% \end{itemize}
-% \end{onehalfspacing}
+  \section{\faUsers\ 工作经历}
+  \datedsubsection{\textbf{小米科技有限公司}\ 南京}{2025年4月 -- 至今}
+  \role{Rust, Flutter, C++}{\textbf{RustUI 引擎 \& Maml 小部件性能优化}}
+  \begin{onehalfspacing}
+  客户端基础架构工程师
+  \begin{itemize}
+    \item 背景：负责手机系统 UI 渲染链路与桌面小部件运行时的性能/内存优化，面向亿级设备的低延迟交互需求。
+    \item 职责：
+      \begin{itemize}
+        \item 自研 RustUI 渲染框架，替代原有 Flutter UI 方案，在真实线上场景中整体内存占用降低 40\%+，冷启动耗时缩短约 20\%，显著降低卡顿与 OOM 风险。
+        \item 将 Rust 异步运行时深度接入 Flutter Engine，复用其事件循环与线程模型，使业务逻辑与渲染解耦并行执行，显著减少主线程阻塞与尾延迟。
+        \item 针对 Maml 小部件重写底层 UI 计算模块：通过 mmap + 异步 IO 优化资源加载、重构脏区计算与绘制调度，将首帧启动耗时降低 70\%+，每帧 CPU 渲染压力降低约 30\%。
+        \item 建立端到端性能观测与压测方案（trace、延迟 P95/P99 指标），对关键交互路径做性能预算与回归监控，支撑持续迭代优化。
+      \end{itemize}
+    \item 成果：在高并发与复杂场景下依然稳定提供 60FPS+ 的交互体验，为后续跨端、低延迟 UI 引擎演进打下基础。
+  \end{itemize}
+  \end{onehalfspacing}
 
-% \datedsubsection{\textbf{\LaTeX\ 简历模板}}{2015 年5月 -- 至今}
-% \role{\LaTeX, Python}{个人项目}
-% \begin{onehalfspacing}
-% 优雅的 \LaTeX\ 简历模板, https://github.com/billryan/resume
-% \begin{itemize}
-%   \item 容易定制和扩展
-%   \item 完善的 Unicode 字体支持，使用 \XeLaTeX\ 编译
-%   \item 支持 FontAwesome 4.5.0
-% \end{itemize}
-% \end{onehalfspacing}
 
-% Reference Test
-%\datedsubsection{\textbf{Paper Title\cite{zaharia2012resilient}}}{May. 2015}
-%An xxx optimized for xxx\cite{verma2015large}
-%\begin{itemize}
-%  \item main contribution
-%\end{itemize}
+  \datedsubsection{\textbf{阿里斑马智行网络有限公司}\ 杭州}{2022年11月 -- 2025年1月}
+  \role{Rust, C++}{\textbf{AliOS DDS} 一个专用于车载行业的通信中间件}
+  \begin{onehalfspacing}
+  中间件开发工程师
+  \begin{itemize}
+    \item 主导 Discovery 发现模块性能优化：小规模场景发现时间从 130us 降至 \textasciitilde40us，大规模场景从 3\textasciitilde5s 降至 300ms，并基于 tokio 重构异步架构，避免长时间持锁导致的尾延迟。
+  \item 基于 DDS 搭建低延迟、确定性的数据传输链路，优化序列化与内存拷贝路径，实现微秒级端到端通信（单条消息传递延迟控制在 50μs 级别）。
+  \item 在关键链路中引入 Zero-Copy、共享内存以及类 DPDK / 用户态网络栈的设计思想，显著降低内核上下文切换与数据拷贝开销，为高吞吐、低尾延迟打下基础。
+  \end{itemize}
+  \end{onehalfspacing}
 
-\section{\faCogs\ 技能清单}
-% increase linespacing [parsep=0.5ex]
-\begin{itemize}[parsep=0.5ex]
-    \item \textbf{语言}：C++, Rust, Javascript, Typescript, Python
-    \item \textbf{框架}：Qt, NodeJS, Vue, React, Electron, Tauri
-    \item \textbf{数据库相关}：PostgreSQL, SQLite
-    \item \textbf{版本管理、文档、部署、debug工具}：Git, RustDoc, Jenkins, Grafana, Google Test, Cargo Test, CMake, atrace, Cargo, gdb, valgrind, wireshark
-\end{itemize}
 
-% \section{\faHeartO\ 获奖情况}
-% \datedline{\textit{第一名}, xxx 比赛}{2013 年6 月}
-% \datedline{其他奖项}{2015}
+  \datedsubsection{\textbf{浙江大华技术股份有限公司}\ 杭州（实习）}{2021年6月 -- 2021年9月}
+  \role{Qt/C++}{\textbf{大华云睿} 一个SAAS服务的终端视频监控和管理桌面软件项目}
+  \begin{onehalfspacing}
+  桌面应用开发工程师
+  \begin{itemize}
+    \item 重构消息处理机制，引入优先级队列与双向确认，将重点消息送达延迟稳定控制在 200ms 以内，提升告警可靠性。
+    \item 设计悬浮球消息中心及动画交互，提升高频告警场景下的可见性与可操作性，获得客户点名表扬。
+  \end{itemize}
+  \end{onehalfspacing}
+  
+  % \datedsubsection{\textbf{分布式科学上网姿势}}{2014年6月 -- 至今}
+  % \role{Golang, Linux}{个人项目，和富帅糕合作开发}
+  % \begin{onehalfspacing}
+  % 分布式负载均衡科学上网姿势, https://github.com/cyfdecyf/cow
+  % \begin{itemize}
+  %   \item 修复了连接未正常关闭导致文件描述符耗尽的 bug
+  %   \item 使用Chord 哈希 URL, 实现稳定可靠地分流
+  %   \item xxx (尽量使用量化的客观结果)
+  % \end{itemize}
+  % \end{onehalfspacing}
 
-% \section{\faInfo\ 其他}
-% % increase linespacing [parsep=0.5ex]
-% \begin{itemize}[parsep=0.5ex]
-%   \item 技术博客: http://blog.yours.me
-%   \item GitHub: https://github.com/username
-%   \item 语言: 英语 - 熟练(TOEFL xxx)
-% \end{itemize}
+  % \datedsubsection{\textbf{\LaTeX\ 简历模板}}{2015 年5月 -- 至今}
+  % \role{\LaTeX, Python}{个人项目}
+  % \begin{onehalfspacing}
+  % 优雅的 \LaTeX\ 简历模板, https://github.com/billryan/resume
+  % \begin{itemize}
+  %   \item 容易定制和扩展
+  %   \item 完善的 Unicode 字体支持，使用 \XeLaTeX\ 编译
+  %   \item 支持 FontAwesome 4.5.0
+  % \end{itemize}
+  % \end{onehalfspacing}
 
-%% Reference
-%\newpage
-%\bibliographystyle{IEEETran}
-%\bibliography{mycite}
-\end{document}
+  % Reference Test
+  %\datedsubsection{\textbf{Paper Title\cite{zaharia2012resilient}}}{May. 2015}
+  %An xxx optimized for xxx\cite{verma2015large}
+  %\begin{itemize}
+  %  \item main contribution
+  %\end{itemize}
+
+  \section{\faCogs\ 技能清单}
+  % increase linespacing [parsep=0.5ex]
+  \begin{itemize}[parsep=0.5ex]
+      \item \textbf{语言}：C++, Rust, Javascript, Typescript, Python
+      \item \textbf{框架}：Qt, NodeJS, Vue, React, Electron, Tauri, Flutter
+      \item \textbf{数据库相关}：PostgreSQL, SQLite
+      \item \textbf{版本管理、文档、部署、debug工具}：Git, RustDoc, Jenkins, Grafana, Google Test, Cargo Test, CMake, atrace, Cargo, gdb, valgrind, wireshark
+  \end{itemize}
+
+  % \section{\faHeartO\ 获奖情况}
+  % \datedline{\textit{第一名}, xxx 比赛}{2013 年6 月}
+  % \datedline{其他奖项}{2015}
+
+  % \section{\faInfo\ 其他}
+  % % increase linespacing [parsep=0.5ex]
+  % \begin{itemize}[parsep=0.5ex]
+  %   \item 技术博客: http://blog.yours.me
+  %   \item GitHub: https://github.com/username
+  %   \item 语言: 英语 - 熟练(TOEFL xxx)
+  % \end{itemize}
+
+  %% Reference
+  %\newpage
+  %\bibliographystyle{IEEETran}
+  %\bibliography{mycite}
+  \end{document}
