@@ -1,0 +1,27 @@
+---
+import '../styles/global.css';
+import '../styles/editorial.css';
+---
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liu Zhenyue — Portfolio</title>
+    <meta name="description" content="柳振跃 — Systems Architect. RustUI, AliOS DDS, Agent-driven development." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    <slot />
+    <script>
+      import { initI18n } from '../scripts/i18n';
+      import { initHeroAnimation, initScrollAnimations } from '../scripts/animations';
+      document.addEventListener('DOMContentLoaded', () => {
+        initI18n();
+        initHeroAnimation();
+        initScrollAnimations();
+      });
+    </script>
+  </body>
+</html>

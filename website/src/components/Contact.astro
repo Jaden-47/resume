@@ -1,0 +1,156 @@
+---
+---
+<section id="section-07" class="contact">
+  <div class="contact-dark-panel"></div>
+
+  <div class="contact-content">
+    <div class="contact-left">
+      <div class="section-label contact-section-label" data-i18n="contact.label">07 — 联系我</div>
+
+      <div class="contact-headline">
+        <span class="contact-word" data-i18n="contact.headline1">Let's</span><br>
+        <span class="contact-word contact-word-gold" data-i18n="contact.headline2">Build</span><br>
+        <span class="contact-word" data-i18n="contact.headline3">Together.</span>
+      </div>
+
+      <div class="contact-links">
+        <div class="contact-link">
+          <div class="contact-link-label mono" data-i18n="contact.email.label">邮箱</div>
+          <a href="mailto:jarvisliu1014@gmail.com">jarvisliu1014@gmail.com</a>
+        </div>
+        <div class="contact-link">
+          <div class="contact-link-label mono" data-i18n="contact.github.label">GitHub</div>
+          <a href="https://github.com/Jaden-47" target="_blank" rel="noopener">github.com/Jaden-47</a>
+        </div>
+        <div class="contact-link">
+          <div class="contact-link-label mono" data-i18n="contact.wechat.label">微信</div>
+          <span>193-3400-8868</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-right">
+      <a href="/resume.pdf" class="contact-resume-btn" data-i18n="contact.resume">下载简历 PDF</a>
+    </div>
+  </div>
+
+  <div class="contact-footer" data-i18n="contact.footer">© 2025 LIU ZHENYUE — DESIGNED WITH INTENTION</div>
+</section>
+
+<style>
+.contact {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contact-dark-panel {
+  position: absolute;
+  inset: 0;
+  width: 70%;
+  background: var(--dark);
+  z-index: 0;
+}
+
+.contact-content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  flex: 1;
+}
+
+.contact-left {
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 48px;
+}
+
+.contact-section-label { color: var(--gray-2); }
+
+.contact-headline {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 7vw, 80px);
+  font-weight: 900;
+  color: var(--cream);
+  line-height: 1;
+}
+
+.contact-word-gold { color: var(--gold); }
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-link {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.contact-link-label {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--gray-2);
+}
+
+.contact-link a,
+.contact-link span {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--cream);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contact-link a:hover { color: var(--gold); }
+
+.contact-right {
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.contact-resume-btn {
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--dark);
+  border: 1px solid var(--dark);
+  padding: 12px 24px;
+  text-decoration: none;
+  writing-mode: vertical-rl;
+  transition: background 0.2s, color 0.2s;
+}
+
+.contact-resume-btn:hover {
+  background: var(--dark);
+  color: var(--cream);
+}
+
+.contact-footer {
+  position: relative;
+  z-index: 1;
+  padding: 20px 60px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--gray-3);
+  background: var(--dark);
+}
+
+@media (max-width: 768px) {
+  .contact-dark-panel { width: 100%; }
+  .contact-content { grid-template-columns: 1fr; }
+  .contact-right { background: transparent; padding: 0 60px 40px; justify-content: flex-start; }
+  .contact-resume-btn { writing-mode: horizontal-tb; color: var(--cream); border-color: var(--cream); }
+}
+</style>

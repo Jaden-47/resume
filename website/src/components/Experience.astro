@@ -1,0 +1,174 @@
+---
+const companies = [
+  {
+    key: 'xiaomi',
+    layout: 'dark-left',
+    metrics: [
+      { key: 'xiaomi.m1' },
+      { key: 'xiaomi.m2' },
+      { key: 'xiaomi.m3' },
+    ],
+    tags: ['Rust', 'Flutter', 'C++', 'Agent'],
+  },
+  {
+    key: 'alibaba',
+    layout: 'cream-left',
+    metrics: [
+      { key: 'alibaba.m1' },
+      { key: 'alibaba.m2' },
+      { key: 'alibaba.m3' },
+    ],
+    tags: ['Rust', 'C++', 'tokio', 'AF_XDP'],
+  },
+  {
+    key: 'dahua',
+    layout: 'dark-left',
+    metrics: [
+      { key: 'dahua.m1' },
+    ],
+    tags: ['Qt', 'C++'],
+  },
+];
+---
+<section id="section-03" class="experience">
+  <div class="section-label exp-section-label" data-i18n="exp.label">03 — 工作经历</div>
+
+  {companies.map((co) => (
+    <div class={`exp-block ${co.layout}`}>
+      <div class="exp-content">
+        <div class="exp-company">
+          <div class="exp-company-name" data-i18n={`exp.${co.key}.name`}></div>
+          <div class="exp-dates mono" data-i18n={`exp.${co.key}.dates`}></div>
+          <div class="exp-role" data-i18n={`exp.${co.key}.role`}></div>
+          <div class="exp-location mono" data-i18n={`exp.${co.key}.location`}></div>
+          <div class="exp-tags">
+            {co.tags.map((tag) => <span class="tech-tag">{tag}</span>)}
+          </div>
+        </div>
+
+        <div class="exp-details">
+          <div class="exp-metrics">
+            {co.metrics.map((m) => (
+              <div class="exp-metric">
+                <div class="metric-number" data-i18n={`exp.${m.key}.value`}></div>
+                <div class="metric-label" data-i18n={`exp.${m.key}.label`}></div>
+              </div>
+            ))}
+          </div>
+          <div class="gold-divider"></div>
+          <p class="exp-desc" data-i18n={`exp.${co.key}.desc`}></p>
+        </div>
+      </div>
+    </div>
+  ))}
+</section>
+
+<style>
+.experience { position: relative; }
+
+.exp-section-label { padding: 60px 40px 20px; }
+
+.exp-block {
+  position: relative;
+  overflow: hidden;
+  min-height: 50vh;
+}
+
+.exp-block::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 38%;
+  background: var(--dark);
+}
+
+.exp-block.dark-left::before { left: 0; }
+.exp-block.cream-left::before { right: 0; }
+
+.exp-content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 38% 62%;
+  min-height: 50vh;
+}
+
+.exp-company {
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
+.exp-block.dark-left .exp-company { color: var(--cream); }
+.exp-block.cream-left .exp-company { color: var(--dark); }
+
+/* Cream-left flips: details left, company right */
+.exp-block.cream-left .exp-content { grid-template-columns: 62% 38%; }
+.exp-block.cream-left .exp-details { order: -1; color: var(--dark); }
+.exp-block.cream-left .exp-company { color: var(--cream); }
+
+.exp-company-name {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.exp-dates {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--gold);
+}
+
+.exp-role {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--gray-2);
+}
+
+.exp-location {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--gray-3);
+}
+
+.exp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.exp-details {
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.exp-metrics {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.exp-metric { text-align: center; }
+
+.exp-desc {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--gray-1);
+}
+
+@media (max-width: 768px) {
+  .exp-content,
+  .exp-block.cream-left .exp-content { grid-template-columns: 1fr; }
+  .exp-block::before { display: none; }
+  .exp-block.dark-left .exp-company { background: var(--dark); }
+  .exp-block.cream-left .exp-details { order: 0; }
+}
+</style>

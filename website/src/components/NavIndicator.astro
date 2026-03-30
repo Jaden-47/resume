@@ -1,0 +1,59 @@
+---
+const sections = ['01','02','03','04','05','06','07'];
+---
+<nav class="nav-indicator" aria-label="Section navigation">
+  {sections.map((n) => (
+    <a href={`#section-${n}`} class="nav-dot" data-section={n}>
+      <span class="nav-num">{n}</span>
+    </a>
+  ))}
+</nav>
+
+<style>
+.nav-indicator {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.nav-dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.nav-num {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--gray-3);
+  letter-spacing: 1px;
+  transition: color 0.2s;
+}
+.nav-dot.active .nav-num,
+.nav-dot:hover .nav-num {
+  color: var(--gold);
+}
+@media (max-width: 768px) {
+  .nav-indicator { display: none; }
+}
+</style>
+
+<script>
+const dots = document.querySelectorAll<HTMLAnchorElement>('.nav-dot');
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        const id = e.target.id.replace('section-', '');
+        dots.forEach((d) => d.classList.toggle('active', d.dataset.section === id));
+      }
+    });
+  },
+  { threshold: 0.4 }
+);
+document.querySelectorAll<HTMLElement>('[id^="section-"]').forEach((s) => observer.observe(s));
+</script>

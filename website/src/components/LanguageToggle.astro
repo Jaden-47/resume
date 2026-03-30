@@ -1,0 +1,39 @@
+---
+---
+<div class="lang-toggle">
+  <button class="lang-btn active" data-lang="zh">中文</button>
+  <span class="lang-sep">/</span>
+  <button class="lang-btn" data-lang="en">EN</button>
+</div>
+
+<style>
+.lang-toggle {
+  position: fixed;
+  top: 28px;
+  right: 32px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.lang-btn {
+  background: none;
+  border: none;
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--gray-2);
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+.lang-btn.active {
+  color: var(--dark);
+  border-bottom: 1px solid var(--dark);
+}
+.lang-sep {
+  font-family: var(--font-display);
+  font-size: 12px;
+  color: var(--gray-3);
+}
+</style>

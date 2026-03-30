@@ -1,0 +1,192 @@
+---
+const nodes = [
+  { id: 'rust',    label: 'Rust',       x: 200, y: 100, r: 9,  cat: 'lang' },
+  { id: 'cpp',     label: 'C++',        x: 100, y: 60,  r: 8,  cat: 'lang' },
+  { id: 'js',      label: 'JS/TS',      x: 480, y: 130, r: 6,  cat: 'lang' },
+  { id: 'python',  label: 'Python',     x: 560, y: 170, r: 4,  cat: 'lang' },
+  { id: 'flutter', label: 'Flutter',    x: 300, y: 60,  r: 6,  cat: 'framework' },
+  { id: 'qt',      label: 'Qt',         x: 80,  y: 150, r: 5,  cat: 'framework' },
+  { id: 'vue',     label: 'Vue/React',  x: 420, y: 80,  r: 5,  cat: 'framework' },
+  { id: 'tokio',   label: 'tokio',      x: 200, y: 170, r: 5,  cat: 'framework' },
+  { id: 'agent',   label: 'Agent',      x: 370, y: 150, r: 8,  cat: 'ai' },
+  { id: 'a2ui',    label: 'A2UI',       x: 450, y: 190, r: 4,  cat: 'ai' },
+  { id: 'llm',     label: 'LLM',        x: 310, y: 200, r: 5,  cat: 'ai' },
+  { id: 'pg',      label: 'PostgreSQL', x: 560, y: 60,  r: 4,  cat: 'tools' },
+  { id: 'sqlite',  label: 'SQLite',     x: 620, y: 100, r: 3,  cat: 'tools' },
+];
+
+const edges = [
+  ['rust', 'cpp'],
+  ['rust', 'tokio'],
+  ['rust', 'agent'],
+  ['rust', 'flutter'],
+  ['cpp', 'qt'],
+  ['cpp', 'flutter'],
+  ['agent', 'a2ui'],
+  ['agent', 'llm'],
+  ['vue', 'js'],
+  ['pg', 'sqlite'],
+];
+
+function getNode(id: string) { return nodes.find(n => n.id === id)!; }
+---
+<section id="section-05" class="skills">
+  <div class="skills-inner">
+    <div class="section-label" data-i18n="skills.label">05 — 技能图谱</div>
+
+    <div class="skill-cats">
+      <button class="skill-cat-btn active" data-cat="all">ALL</button>
+      {(['lang','framework','ai','tools'] as const).map((cat) => (
+        <button class="skill-cat-btn" data-cat={cat} data-i18n={`skills.cat.${cat}`}></button>
+      ))}
+    </div>
+
+    <svg class="skills-svg" viewBox="0 0 700 240" aria-label="Skill constellation">
+      {edges.map(([a, b]) => {
+        const na = getNode(a), nb = getNode(b);
+        return (
+          <line
+            class="skill-line"
+            data-cats={`${na.cat} ${nb.cat}`}
+            x1={na.x} y1={na.y}
+            x2={nb.x} y2={nb.y}
+            stroke="var(--gold)"
+            stroke-width="0.8"
+            opacity="0.25"
+          />
+        );
+      })}
+
+      {nodes.map((n) => (
+        <g class="skill-node" data-cat={n.cat} data-id={n.id}>
+          <circle
+            cx={n.x} cy={n.y} r={n.r}
+            fill="var(--gold)"
+            opacity={n.r >= 7 ? '1' : '0.45'}
+          />
+          <text
+            x={n.x} y={n.y - n.r - 5}
+            text-anchor="middle"
+            font-family="var(--font-display)"
+            font-size={n.r >= 7 ? '12' : '10'}
+            fill={n.r >= 7 ? '#f5f0e8' : '#888'}
+          >{n.label}</text>
+        </g>
+      ))}
+    </svg>
+
+    <div class="skills-legend">
+      <div class="legend-item">
+        <div class="legend-dot large"></div>
+        <span data-i18n="skills.legend.core">核心技能</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot small"></div>
+        <span data-i18n="skills.legend.aux">辅助技能</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+document.querySelectorAll<HTMLElement>('.skill-cat-btn').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const cat = btn.dataset.cat!;
+    document.querySelectorAll('.skill-cat-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    document.querySelectorAll<SVGGElement>('.skill-node').forEach((node) => {
+      const match = cat === 'all' || node.dataset.cat === cat;
+      node.style.opacity = match ? '1' : '0.15';
+    });
+    document.querySelectorAll<SVGLineElement>('.skill-line').forEach((line) => {
+      const cats = line.dataset.cats ?? '';
+      const match = cat === 'all' || cats.includes(cat);
+      line.style.opacity = match ? '0.4' : '0.05';
+    });
+  });
+});
+</script>
+
+<style>
+.skills {
+  background: #0d0d0d;
+  padding: 80px 40px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.skills-inner {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.skills-inner .section-label {
+  color: var(--gray-2);
+  margin-bottom: 32px;
+}
+
+.skill-cats {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.skill-cat-btn {
+  background: none;
+  border: 1px solid var(--gray-4);
+  color: var(--gray-2);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  padding: 5px 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+
+.skill-cat-btn.active,
+.skill-cat-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.skills-svg {
+  width: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.skill-node {
+  cursor: default;
+  transition: opacity 0.3s;
+}
+
+.skill-line {
+  transition: opacity 0.3s;
+}
+
+.skills-legend {
+  display: flex;
+  gap: 28px;
+  margin-top: 24px;
+  justify-content: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--gray-3);
+}
+
+.legend-dot { border-radius: 50%; background: var(--gold); }
+.legend-dot.large { width: 10px; height: 10px; }
+.legend-dot.small { width: 5px; height: 5px; opacity: 0.45; }
+</style>

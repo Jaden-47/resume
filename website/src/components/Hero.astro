@@ -1,0 +1,198 @@
+---
+---
+<section id="section-01" class="hero">
+  <!-- Dark right panel -->
+  <div class="hero-dark-panel"></div>
+
+  <div class="hero-content">
+    <!-- Issue label -->
+    <div class="hero-issue section-label" data-i18n="hero.issue">Issue No. 01 — 个人作品集</div>
+
+    <!-- Name block -->
+    <div class="hero-name" aria-label="Liu Zhenyue">
+      <div class="name-line name-liu">Liu</div>
+      <div class="name-line name-zhen"><span class="outline">Zhen</span>yue</div>
+      <div class="hero-ghost" aria-hidden="true">柳振跃</div>
+    </div>
+
+    <!-- Vertical role text (on dark side) -->
+    <div class="hero-role" data-i18n="hero.role">系统架构师</div>
+
+    <!-- Tagline -->
+    <div class="hero-tagline">
+      <div class="gold-divider"></div>
+      <p data-i18n="hero.tagline">构建驱动百万设备的基础架构。<br>从微秒级通信中间件到 Agent 驱动的开发范式。</p>
+    </div>
+
+    <!-- Company labels -->
+    <div class="hero-companies">
+      <span>XIAOMI</span>
+      <span>ALIBABA</span>
+      <span>UCSC</span>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero-scroll">
+      <div class="scroll-text" data-i18n="hero.scroll">SCROLL</div>
+      <div class="scroll-line"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+.hero {
+  height: 100vh;
+  position: relative;
+  background: var(--cream);
+}
+
+.hero-dark-panel {
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 38%;
+  background: var(--dark);
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  padding: 28px 40px;
+  display: grid;
+  grid-template-areas:
+    "issue    ."
+    "name     role"
+    "tagline  ."
+    "companies scroll";
+  grid-template-rows: auto 1fr auto auto;
+  grid-template-columns: 62% 38%;
+}
+
+.hero-issue {
+  grid-area: issue;
+  align-self: start;
+}
+
+.hero-name {
+  grid-area: name;
+  align-self: center;
+  position: relative;
+}
+
+.name-line {
+  font-family: var(--font-display);
+  font-size: clamp(60px, 9vw, 110px);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -3px;
+  color: var(--dark);
+}
+
+.name-line .outline {
+  -webkit-text-stroke: 1.5px var(--dark);
+  color: transparent;
+}
+
+.hero-ghost {
+  position: absolute;
+  bottom: -10px;
+  left: 20px;
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 900;
+  color: var(--dark);
+  opacity: 0.06;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.hero-role {
+  grid-area: role;
+  align-self: center;
+  writing-mode: vertical-rl;
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: var(--gray-2);
+  text-align: right;
+  padding-right: 40px;
+}
+
+.hero-tagline {
+  grid-area: tagline;
+  align-self: end;
+  max-width: 480px;
+  padding-bottom: 20px;
+}
+
+.hero-tagline p {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--gray-1);
+  line-height: 1.9;
+}
+
+.hero-companies {
+  grid-area: companies;
+  align-self: end;
+  display: flex;
+  gap: 28px;
+  padding-bottom: 40px;
+}
+
+.hero-companies span {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--gray-3);
+}
+
+.hero-scroll {
+  grid-area: scroll;
+  align-self: end;
+  justify-self: end;
+  padding-bottom: 40px;
+  padding-right: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.scroll-text {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--gray-2);
+  writing-mode: vertical-rl;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, var(--gray-2), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 1; transform: scaleY(1); }
+  50% { opacity: 0.3; transform: scaleY(0.6); }
+}
+
+@media (max-width: 768px) {
+  .hero-dark-panel { width: 0; }
+  .hero-content {
+    grid-template-areas:
+      "issue"
+      "name"
+      "tagline"
+      "companies";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+  }
+  .hero-role { display: none; }
+  .hero-scroll { display: none; }
+  .name-line { font-size: clamp(48px, 12vw, 80px); }
+}
+</style>

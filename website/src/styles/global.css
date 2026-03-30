@@ -1,0 +1,51 @@
+/* website/src/styles/global.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Noto+Serif+SC:wght@400;700;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --cream: #f5f0e8;
+  --dark: #1a1a1a;
+  --gold: #c4a35a;
+  --gray-1: #555;
+  --gray-2: #666;
+  --gray-3: #999;
+  --gray-4: #333;
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, serif;
+  --font-body: 'Noto Serif SC', Georgia, serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+.section-label {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gray-2);
+}
+
+.gold-divider {
+  width: 40px;
+  height: 2px;
+  background: var(--gold);
+  margin: 16px 0;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}

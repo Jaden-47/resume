@@ -1,0 +1,130 @@
+---
+const projects = [
+  {
+    key: 'rustui',
+    style: 'on-cream',
+    tags: ['Rust', 'Flutter', 'mmap'],
+    position: 'card-topleft',
+  },
+  {
+    key: 'dds',
+    style: 'on-dark',
+    tags: ['Rust', 'C++', 'tokio', 'AF_XDP'],
+    position: 'card-topright',
+  },
+  {
+    key: 'agent',
+    style: 'on-cream featured',
+    tags: ['Agent', 'LLM', 'Workflow'],
+    position: 'card-bottomcenter',
+  },
+];
+---
+<section id="section-04" class="projects">
+  <div class="projects-inner">
+    <div class="section-label" data-i18n="proj.label">04 — 精选项目</div>
+
+    <div class="cards-stage">
+      {projects.map((p) => (
+        <div class={`project-card editorial-card ${p.style} ${p.position}`}>
+          <div class="card-meta">
+            <span class="card-num mono" data-i18n={`proj.${p.key}.num`}></span>
+            <span class="card-company mono" data-i18n={`proj.${p.key}.company`}></span>
+          </div>
+          <div class="card-title" data-i18n={`proj.${p.key}.title`}></div>
+          <div class="gold-divider"></div>
+          <p class="card-desc" data-i18n={`proj.${p.key}.desc`}></p>
+          <div class="card-tags">
+            {p.tags.map((t) => <span class="tech-tag">{t}</span>)}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+.projects {
+  background: var(--dark);
+  padding: 80px 40px 120px;
+  min-height: 100vh;
+}
+
+.projects-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.projects-inner .section-label {
+  color: var(--gray-2);
+  margin-bottom: 60px;
+}
+
+.cards-stage {
+  position: relative;
+  height: 560px;
+}
+
+.project-card {
+  position: absolute;
+  width: 52%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0s;
+}
+
+.project-card:hover {
+  transform: translateY(-8px) rotate(0deg) !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  z-index: 10 !important;
+}
+
+.card-topleft  { left: 0;   top: 0;   z-index: 3; transform: rotate(-1deg); }
+.card-topright { right: 0;  top: 60px; z-index: 2; transform: rotate(1.5deg); }
+.card-bottomcenter { left: 22%; bottom: 0; z-index: 1; transform: rotate(-0.5deg); }
+
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.card-num, .card-company {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--gray-3);
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.on-cream .card-title { color: var(--dark); }
+.on-dark .card-title  { color: var(--cream); }
+
+.card-desc {
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.on-cream .card-desc { color: var(--gray-1); }
+.on-dark .card-desc  { color: var(--gray-2); }
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.on-cream .tech-tag { color: var(--gray-2); border-color: var(--gray-2); }
+.on-dark .tech-tag  { color: var(--gray-3); border-color: var(--gray-3); }
+
+@media (max-width: 768px) {
+  .cards-stage { height: auto; display: flex; flex-direction: column; gap: 20px; }
+  .project-card { position: static; width: 100%; transform: none !important; }
+}
+</style>
