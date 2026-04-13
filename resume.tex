@@ -27,19 +27,20 @@
 
   \section{\faUsers\ 工作经历}
   \datedsubsection{\textbf{小米科技有限公司}\ 南京}{2025年4月 -- 至今}
-  \role{Rust, C++, Flutter}{\textbf{RustUI 系统级渲染引擎 / HyperOS 系统框架集成}}
+  \role{Rust, C++, Flutter, Perfetto}{\textbf{RustUI 系统级渲染引擎 / HyperOS 图形框架集成}}
   \begin{onehalfspacing}
   客户端基础架构工程师
   \begin{itemize}
-    \item 自研 RustUI 系统级渲染框架，基于 Rust + unsafe FFI 替代原有 Flutter UI 方案，作为系统组件集成至小米 HyperOS 框架；参与开发Rust UI DSL，加速上线流程，最终线上内存占用降低 40\%+，冷启动缩短约 20\%。
-    \item 重写Maml小部件底层 UI 计算模块：通过 mmap + 异步 IO 优化资源加载路径，重构脏区计算与绘制调度策略（优先级队列 + 帧预算控制），首帧启动耗时降低 70\%+，每帧 CPU 渲染开销降低约 30\%。
-    \item 将 Agent 引入代码迁移流程，搭建 agentic coding workflow，两天完成十人月的迁移工作量，在百人团队推广宣讲。
+    \item 参与 RustUI 渲染框架设计与落地，基于 Rust + unsafe FFI 重写 Flutter Framework; 参与 Rust UI DSL 设计，最终线上内存占用降低 40\%+，冷启动缩短约 20\%。
+    \item 打通 Rust async runtime 与 Flutter engine 的事件循环和线程模型，解耦业务逻辑与渲染链路，减少主线程阻塞与尾延迟，支撑系统级 UI 场景稳定运行。
+    \item 重写小部件底层 UI 计算模块：通过 mmap + 异步 IO 优化资源加载路径，重构脏区计算与绘制调度策略（优先级队列 + 帧预算控制）；首帧启动耗时降低 70\%+，每帧 CPU 开销降低约 20\%。
+    \item 搭建Agentic Coding Workflow，两天完成十人月的迁移工作量，在百人团队推广宣讲；搭建 AI tracing / benchmark 体系，持续观测关键交互链路时延与资源开销，并自动化给出优化建议。
   \end{itemize}
   \end{onehalfspacing}
 
 
   \datedsubsection{\textbf{阿里斑马智行网络有限公司}\ 杭州}{2022年11月 -- 2025年1月}
-  \role{Rust, C++, eBPF}{\textbf{AliOS DDS} 车载实时通信中间件（内核态 + 用户态）}
+  \role{Rust, C++, eBPF}{\textbf{AliOS DDS} 车载实时通信中间件}
   \begin{onehalfspacing}
   中间件开发工程师
   \begin{itemize}
@@ -93,10 +94,10 @@
   % increase linespacing [parsep=0.5ex]
   \begin{itemize}[parsep=0.5ex]
       \item \textbf{语言}：Rust（含 unsafe / async / FFI）, C/C++, Python
-      \item \textbf{系统编程}：Linux 系统调用, POSIX shm/mmap, 进程/线程调度, 内存管理
+      \item \textbf{系统编程}：Linux 系统调用, POSIX shm/mmap, 异步 IO, 进程/线程调度, 内存管理
       \item \textbf{内核 / 网络}：eBPF / AF\_XDP, 内核模块开发, 用户态网络栈, Zero-Copy
       \item \textbf{Rust 生态}：tokio, serde; 系统级 Rust（no\_std / unsafe / FFI）
-      \item \textbf{工具链}：Perfetto, Atrace, perf, gdb, valgrind, wireshark, CMake, Cargo
+      \item \textbf{性能分析 / 工具链}：trace, Perfetto, Atrace, perf, gdb, CMake, Cargo
   \end{itemize}
 
   % \section{\faHeartO\ 获奖情况}
