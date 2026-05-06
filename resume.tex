@@ -27,14 +27,14 @@
 
   \section{\faUsers\ 工作经历}
   \datedsubsection{\textbf{小米科技有限公司}\ 南京}{2025年4月 -- 至今}
-  \role{C/C++, Rust, Flutter, Perfetto}{\textbf{HyperOS 低延迟实时系统框架} 核心调度与性能优化}
+  \role{C/C++, Rust, Flutter, Perfetto}{\textbf{HyperOS 图形渲染框架引擎} 系统开发 / 性能优化}
   \begin{onehalfspacing}
   系统开发工程师
   \begin{itemize}
-    \item 参与 HyperOS 低延迟实时系统框架（RustUI）架构设计与落地，基于 C/C++ 及 Rust FFI 重构核心调度层与事件处理链路，设计跨语言 FFI 边界的低开销数据传输与线程安全机制。
-    \item 设计多优先级异步任务调度器，打通 Rust async runtime 与 Flutter engine 的事件循环与线程模型，解耦关键路径与后台任务，消除 head-of-line blocking，P99 尾延迟显著降低，保障系统级场景的确定性低延迟响应。
-    \item 优化关键路径延迟：通过 mmap + 异步 IO 实现资源零拷贝加载，设计多优先级任务调度与流控机制（优先级队列 + 动态预算分配），消除冗余计算。端到端延迟降低 70\%+，CPU 开销降低约 20\%。
-    \item 基于 LangChain 搭建 AI Agent 驱动的系统性能可观测平台：使用 Perfetto / atrace 插桩关键路径，持续采集微秒级延迟与内存开销数据，自动化输出归因分析与异常预警，前置暴露性能风险。
+    \item 参与 HyperOS 图形渲染框架（RustUI）架构设计与落地，基于 C/C++ 及 Rust FFI 重写 Flutter Framework，理解 Flutter Engine $\leftrightarrow$ Skia 图形栈及 SurfaceFlinger 的 buffer 提交与合成机制。
+    \item 打通 Rust async runtime 与 Flutter engine 的事件循环和线程模型，解耦业务逻辑与渲染链路，减少主线程阻塞与尾延迟，保障系统级 UI 场景帧率稳定。
+    \item 为优化MAML首帧渲染速度：通过 mmap + 异步 IO 优化纹理/资源加载，重写脏区计算与绘制合成调度（优先级队列 + 帧预算控制），减少无效合成。首帧耗时降低 70\%+，每帧 CPU 开销降低约 20\%。
+    \item 基于LangChain搭建AI Agent渲染链路性能分析体系：使用 Perfetto / atrace 插桩关键路径，持续观测帧级别耗时与内存开销，自动化输出归因分析， 前提暴露性能风险。
   \end{itemize}
   \end{onehalfspacing}
 
@@ -48,7 +48,6 @@
     \item 设计低延迟、确定性的数据传输链路，基于 POSIX shm / mmap 实现共享内存零拷贝通道，配合用户态序列化优化，单条消息端到端延迟控制在 \textasciitilde50μs。
     \item 基于 AF\_XDP socket + eBPF 构建用户态网络栈，绕过内核协议栈实现零拷贝收发包，显著降低上下文切换与数据拷贝开销，为高吞吐低尾延迟场景打下基础。
     \item 参与内核模块适配与实时调度策略调优，确保 DDS 关键链路在 RT 场景下的确定性与低抖动表现。
-    \item 基于 Vue 搭建 DDS 中间件可视化管理与配置平台，实现服务拓扑管理、配置热更新与实时监控面板，提升中间件运维效率与易用性。
   \end{itemize}
   \end{onehalfspacing}
 
@@ -81,22 +80,11 @@
   %  \item main contribution
   %\end{itemize}
 
-  \section{\faCode\ 项目经历}
-\datedsubsection{\textbf{matchX}\ 个人项目}{}
-\role{Rust, no\_std}{\textbf{低延迟交易匹配引擎}}
-\begin{onehalfspacing}
-\begin{itemize}
-  \item 实现亚微秒级 P99 延迟的订单匹配引擎，Rust no\_std 核心，支持限价/市价/Iceberg/Stop-Limit 等订单类型及 Self-Trade Prevention 机制。
-  \item 设计 cache-friendly 数据结构：Order 精确 64B 对齐单一缓存行，Arena 预分配 + 空闲链表复用实现零分配热路径，混合稠密/稀疏订单簿基于 occupancy bitset 实现 O(1) BBO 查询。
-  \item 二进制 WAL 日志 + CRC32 校验，异步后台写入；fat LTO + panic=abort + PGO 构建优化；Criterion + HDRHistogram 延迟基准测试体系。
-\end{itemize}
-\end{onehalfspacing}
-
-\section{\faCogs\ 技能清单}
+  \section{\faCogs\ 技能清单}
   % increase linespacing [parsep=0.5ex]
   \begin{itemize}[parsep=0.5ex]
       \item \textbf{语言}：C/C++（精通）, Rust（含 unsafe / async / FFI）, Python
-      \item \textbf{前端 \& 框架}：Flutter / RustUI 声明式框架, Vue 前端工程化, 图形渲染管线 (Skia / SurfaceFlinger)
+      \item \textbf{图形系统}：Flutter 图形管线（Framework / Engine / Skia）, SurfaceFlinger / BufferQueue 机制理解, 渲染管线, 帧调度
       \item \textbf{系统编程}：Linux 内存管理 (mmap / shm), 异步 IO, CPU 调度与线程亲和性, 内核模块
       \item \textbf{性能分析}：Perfetto, atrace, ftrace, perf, eBPF, gdb
       \item \textbf{内核与网络}：eBPF / AF\_XDP, 用户态协议栈, Zero-Copy, 实时调度 (SCHED\_FIFO / SCHED\_RR)
