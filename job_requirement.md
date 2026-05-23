@@ -1,17 +1,37 @@
-# 职位描述
-1. 开发和优化量化交易系统，确保高效稳定运行；
-2. 维护和优化风控系统，提升风控速度；
-3. 开发和维护资产管理系统，增强易用性；
-4. 交易周边系统开发和维护，丰富交易手段。
-# 职位要求
-## 技术经验
-- 熟练使用Golang，以及C++或Python；
-- 熟悉常见数据库（RDBMS / NoSQL / TSDB）；
-- 熟悉常用网络通讯开发范式（RPC / Socket）；
-- 熟悉多线程编程；
-- 熟练使用React/Vue等前端技术，有一定的全栈能力。
-## 行业经验
-- 有金融量化领域开发经验，熟悉行情系统，期货或股票交易者优先；
-- 具备高并发高可用系统开发经验，对低延迟、高吞吐场景有深刻理解。
-# 学历要求
-国内外名校毕业，计算机及相关专业，全日制本科及以上。
+NVIDIA is seeking for an experienced Software Engineer with a strong background in networking and virtualization technologies. This full-time position requires close collaboration with other NVIDIA SW and SW architecture teams, pre-sale teams and different industry leading architecture and RnD teams to develop leading SW solutions and stack, to provide the full solution for NVIDIA's superior Connect-X NICs and Bluefield DPUs. The role requires a strong knowledge of server/Cloud networking and virtualization technologies and top SW development skills.
+
+What you’ll be doing:
+
+Working with NVIDIA top customers RnD, getting familiar with their applications and needs with NVIDIA Product.
+
+Building cutting edge POC prototypes which later to be productize and delivered.
+
+Closely work with NVIDIA various development and architecture teams and take major part of SW development.
+
+What we need to see:
+
+Bachelor or above in Computer Science or computer engineering or related discipline.
+
+5+ years of practical experience.
+
+Strong C/C++ programming skills (user and/or kernel modes).
+
+Experiences using C/C++, Python in Linux hands-on development.
+
+Deep networking knowledge and familiar with protocols such as VLAN, GRE, VXLAN, MPLS, IPSEC, PSP, etc.
+
+Experience with cloud-networking and virtualization technologies.
+
+Strong design, coding, debugging and problem-solving skills.
+
+Advantage – knowledge at RDMA, OvS, DPDK, SRIOV, VIRTIO, Storage and performance optimizations.
+
+Ways to stand out from the crowd:
+
+Demonstrated ability to work in a cross-functional team environment.
+
+Self-motivated, ability to work with little definition and supervision while multi-tasking and prioritizing across a number of projects and initiatives.
+
+NVIDIA is widely considered to be one of the technology world’s most desirable employers. We have some of the most brilliant and talented people on the planet working for us. If you're creative and autonomous, we want to hear from you!
+
+#LI-Hybrid 

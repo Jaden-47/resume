@@ -3,7 +3,7 @@
 % !Mode:: "TeX:UTF-8"
 
 \documentclass{resume}
-\usepackage{zh_CN-Adobefonts_external} % Keep font settings for consistency
+\usepackage{zh_CN-Adobefonts_external}
 \usepackage{linespacing_fix}
 \usepackage{cite}
 
@@ -13,53 +13,75 @@
 \name{Zhenyue Liu}
 
 \basicInfo{
-  Email: jarvisliu1014@gmail.com \textperiodcentered\
-  Phone/WeChat: +86-193-3400-8868 \textperiodcentered\
+  Email: jarvisliu1014@gmail.com \textperiodcentered\ Phone/WeChat: +86-193-3400-8868
+}
+\basicInfo{
+  GitHub: https://github.com/Jaden-47 \textperiodcentered\ Homepage: https://jaden-47.github.io/
 }
 
 \section{\faGraduationCap\  Education \& Certificates}
-\datedsubsection{\textbf{University of California, Santa Cruz (USNEWS Top 100)}, Santa Cruz, CA, US}{2019 -- 2022}
-\textit{B.S.} in Computer Science \\
-Scholarships every year; completed a 4-year curriculum in 3 years and graduated with honors (GPA 3.58).
+\datedsubsection{\textbf{System Architect} -- National Computer Technology and Software Professional Qualification (Senior)}{2024}
+\datedsubsection{\textbf{University of California, Santa Cruz (USNEWS Top 100)}, B.S. in Computer Science}{2019 -- 2022}
 
 
-\section{\faUsers\ Work Experience}
-\datedsubsection{\textbf{Xiaomi Technology Co., Ltd.}, Nanjing}{Apr. 2025 -- Present}
-\role{Rust, Flutter, C++}{\textbf{RustUI Engine \& Maml Widget Performance Optimization}}
+\section{\faUsers\  Work Experience}
+\datedsubsection{\textbf{Xiaomi Technology Co., Ltd.}\ Nanjing}{Apr. 2025 -- Present}
+\role{C/C++, Rust, Flutter, Perfetto}{\textbf{HyperOS Low-Latency Real-Time System Framework} -- Core Scheduling \& Performance Optimization}
 \begin{onehalfspacing}
-{\textbf{Client Infrastructure Engineer}}
+System Development Engineer
 \begin{itemize}
-  \item Built an in-house \textbf{RustUI rendering framework} to replace Flutter-based UI; reduced overall memory footprint by \textbf{40\%+} and cold-start latency by \textbf{\textasciitilde20\%} in production, cutting stutter and OOM incidents.
-  \item Integrated a \textbf{Rust async runtime} with the \textbf{Flutter engine} (event loop and threading reuse) to decouple business logic from rendering, significantly reducing main-thread blocking and \textbf{tail latency}.
-  \item Rewrote core UI computation for \textbf{Maml widgets}, using \textbf{mmap + async IO} and redesigned dirty-region calculation/scheduling; improved first-frame startup latency by \textbf{70\%+} and reduced per-frame CPU rendering cost by \textbf{\textasciitilde30\%}.
-  \item Built an end-to-end \textbf{performance tracing and benchmarking} system (trace, latency \textbf{P95/P99} metrics) to establish performance budgets and regression monitoring for key interaction paths, driving continuous optimization efforts.
+  \item Participated in the architecture design and implementation of the HyperOS low-latency real-time system framework (RustUI), refactoring the core scheduling layer and event processing pipeline using C/C++ and Rust FFI, and designing low-overhead data transfer and thread-safety mechanisms across the FFI boundary.
+  \item Designed a multi-priority async task scheduler that bridges the Rust async runtime with the Flutter engine's event loop and threading model, decoupling critical paths from background tasks to eliminate head-of-line blocking and significantly reduce P99 tail latency, ensuring deterministic low-latency response in system-level scenarios.
+  \item Optimized critical path latency: achieved zero-copy resource loading via mmap + async IO, designed multi-priority task scheduling and flow control mechanisms (priority queue + dynamic budget allocation), and eliminated redundant computation, resulting in 70\%+ end-to-end latency reduction and \textasciitilde20\% CPU overhead reduction.
+  \item Built an AI Agent-driven system performance observability platform based on LangChain: instrumented critical paths using Perfetto / atrace, continuously collected microsecond-level latency and memory overhead data, and automated attribution analysis and anomaly alerting to proactively surface performance risks.
 \end{itemize}
 \end{onehalfspacing}
 
 
-\datedsubsection{\textbf{Alibaba Banma Zhixing Network Co., Ltd.}, Hangzhou}{Nov. 2022 -- Jan. 2025}
-\role{Rust, C++}{\textbf{AliOS DDS}: A Communication Middleware for Automotive Systems}
+\datedsubsection{\textbf{Alibaba Banma Zhixing Network Co., Ltd.}\ Hangzhou}{Nov. 2022 -- Jan. 2025}
+\role{C/C++, Rust, eBPF}{\textbf{AliOS DDS} -- In-Vehicle Real-Time Communication Middleware}
 \begin{onehalfspacing}
-{\textbf{Middleware Development Engineer}}
+Middleware Development Engineer
 \begin{itemize}
-  \item Led performance optimization for the \textbf{Discovery module}: reduced discovery time from \textbf{130us} to \textbf{\textasciitilde40us} in small-scale setups and from \textbf{3\textasciitilde5s} to \textbf{300ms} in large-scale deployments; refactored the tokio-based async architecture to avoid long lock holding and tail-latency spikes.
-  \item Engineered \textbf{low-latency, deterministic data paths} on top of DDS; optimized serialization and memory-copy paths to achieve microsecond-level end-to-end messaging (single-message latency \textbf{\textasciitilde50μs}).
-  \item Applied \textbf{zero-copy}, \textbf{shared-memory}, and user-space networking (\textbf{AF\_XDP}) techniques on critical paths to minimize kernel context switches and copy overhead, enabling \textbf{high-throughput} communication.
-  \item Designed DDS \textbf{domain redundancy} and seamless \textbf{primary/backup failover}, improving availability for in-vehicle real-time communication workloads.
-  \item Built a \textbf{Jenkins + Grafana CI/CD and performance monitoring} stack with automated packaging, testing, and regression checks; surfaced and fixed \textbf{300+ issues} across the middleware stack.
+  \item Led performance optimization of the Discovery module: reduced discovery time from 130μs to \textasciitilde40μs in small-scale scenarios and from 3\textasciitilde5s to 300ms in large-scale deployments; refactored the async architecture based on tokio to eliminate tail latency caused by prolonged lock holding.
+  \item Designed a low-latency, deterministic data transmission path: implemented a shared-memory zero-copy channel based on POSIX shm / mmap, combined with user-space serialization optimization, achieving end-to-end single-message latency of \textasciitilde50μs.
+  \item Built a user-space network stack based on AF\_XDP socket + eBPF, bypassing the kernel network stack for zero-copy packet Tx/Rx, significantly reducing context-switch and data-copy overhead, laying the foundation for high-throughput, low-tail-latency scenarios.
+  \item Participated in kernel module adaptation and real-time scheduling policy tuning to ensure deterministic low-jitter performance of DDS critical paths under RT scenarios.
+  \item Built a DDS middleware visualization management and configuration platform based on Vue, implementing service topology management, hot configuration updates, and real-time monitoring dashboards, improving middleware operational efficiency and usability.
 \end{itemize}
 \end{onehalfspacing}
 
 
-\datedsubsection{\textbf{Zhejiang Dahua Technology Co., Ltd.}, Hangzhou (Intern)}{Jun. 2021 -- Sept. 2021}
+\datedsubsection{\textbf{Zhejiang Dahua Technology Co., Ltd.}\ Hangzhou (Intern)}{Jun. 2021 -- Sept. 2021}
 \role{Qt/C++}{\textbf{Dahua Yunrui}: Desktop Client for a SaaS-Based Video Surveillance Platform}
 \begin{onehalfspacing}
-{\textbf{Desktop Application Development Engineer}}
+Desktop Application Development Engineer
 \begin{itemize}
   \item Refactored the message pipeline with a priority queue and bidirectional acknowledgments, keeping critical alert delivery consistently under 200ms and improving reliability.
   \item Designed a floating-ball notification center with lightweight animations, improving visibility and usability under high-frequency alert scenarios and earning positive customer feedback.
 \end{itemize}
+\end{onehalfspacing}
+
+
+\section{\faCode\  Projects}
+\datedsubsection{\textbf{matchX} -- Personal Project}{}
+\role{Rust, no\_std}{\textbf{Low-Latency Order Matching Engine}}
+\begin{onehalfspacing}
+\begin{itemize}
+  \item Implemented an order matching engine with sub-microsecond P99 latency using a Rust no\_std core, supporting limit, market, Iceberg, and Stop-Limit order types with Self-Trade Prevention mechanisms.
+  \item Designed cache-friendly data structures: Order exactly 64B-aligned to a single cache line, Arena pre-allocation + free-list reuse for zero-allocation hot paths, hybrid dense/sparse order book with O(1) BBO queries based on occupancy bitsets.
+  \item Binary WAL logging + CRC32 checksum with async background writes; fat LTO + panic=abort + PGO build optimization; Criterion + HDRHistogram latency benchmarking framework.
+\end{itemize}
+\end{onehalfspacing}
+
+
+\section{\faCogs\  Skills}
+\begin{itemize}[parsep=0.5ex]
+    \item \textbf{Languages}: C/C++ (Expert), Rust (unsafe / async / FFI), Python
+    \item \textbf{Frontend \& Frameworks}: Flutter / RustUI declarative UI, Vue, graphics rendering pipeline (Skia / SurfaceFlinger)
+    \item \textbf{Systems Programming}: Linux memory management (mmap / shm), async IO, CPU scheduling \& thread affinity, kernel modules
+    \item \textbf{Performance Analysis}: Perfetto, atrace, ftrace, perf, eBPF, gdb
+    \item \textbf{Kernel \& Networking}: eBPF / AF\_XDP (DPDK-like kernel bypass), user-space network stack, Zero-Copy, real-time scheduling (SCHED\_FIFO / SCHED\_RR)
+\end{itemize}
 
 \end{document}
-
-
